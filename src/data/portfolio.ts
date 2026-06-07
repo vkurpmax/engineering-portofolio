@@ -3,7 +3,7 @@ export const profile = {
   shortName: 'Putu Herdy',
   role: 'Process Engineer / HVAC / Instrumentation / BMS / Energy Efficiency',
   location: 'Indonesia',
-  email: 'putu.herdy3@example.com',
+  email: 'putu.herdy3@gmail.com',
   phone: '+62 xxx xxxx xxxx',
   linkedin: 'https://www.linkedin.com/in/putuherdy/',
   github: '#',
