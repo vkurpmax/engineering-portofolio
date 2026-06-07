@@ -10,27 +10,27 @@ const toolGroups = [
   { title: 'Field Knowledge', items: tools.field }
 ];
 ---
-<BaseLayout title="Resume — Putu Herdy Kurniawan" description="Resume page for Putu Herdy Kurniawan: engineering experience, tools, standards, certifications, and education.">
+<BaseLayout title="Resume - Putu Herdy Kurniawan" description="Resume page for Putu Herdy Kurniawan: engineering experience, tools, standards, certifications, and education.">
   <section class="relative overflow-hidden bg-white py-16 sm:py-24">
     <div class="absolute inset-0 grid-paper opacity-30"></div>
     <div class="container-page relative">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <SectionHeading eyebrow="Resume" title="Engineering experience, tools, standards, and education." description="A web-based resume page with expandable role detail pages. Click “Read more” on each role to understand the scope, responsibilities, tools, and impact more comprehensively." />
-        <a href="/documents/cv-putu-herdy-kurniawan.pdf" class="mb-10 inline-flex w-fit rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blueprint">Download CV</a>
+        <SectionHeading eyebrow="Resume" title="Engineering experience, tools, standards, and education." description="A web-based resume page with role detail pages that explain scope, responsibilities, tools, and impact more comprehensively." />
+        <a href="/documents/cv-putu-herdy-kurniawan.pdf" class="btn-primary mb-10 w-fit">Download CV</a>
       </div>
       <ExperienceTimeline />
     </div>
   </section>
 
-  <section class="border-y border-slate-200 py-16 sm:py-20">
+  <section class="section-soft py-16 sm:py-20">
     <div class="container-page">
       <SectionHeading eyebrow="Capabilities" title="Tools and technical knowledge." />
       <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {toolGroups.map((group) => (
-          <div class="engineering-card rounded-[1.5rem] p-6">
-            <h3 class="text-lg font-semibold tracking-[-0.04em] text-slate-950">{group.title}</h3>
+          <div class="engineering-card rounded-lg p-6">
+            <h3 class="text-lg font-semibold text-slate-950">{group.title}</h3>
             <div class="mt-5 flex flex-wrap gap-2">
-              {group.items.map((item) => <span class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600">{item}</span>)}
+              {group.items.map((item) => <span class="chip">{item}</span>)}
             </div>
           </div>
         ))}
@@ -44,9 +44,9 @@ const toolGroups = [
         <SectionHeading eyebrow="Education" title="Academic background." />
         <div class="space-y-4">
           {education.map((item) => (
-            <article class="rounded-[1.5rem] border border-slate-200 bg-white p-6">
-              <p class="text-sm font-semibold text-blueprint">{item.period}</p>
-              <h3 class="mt-2 text-xl font-semibold tracking-[-0.04em] text-slate-950">{item.title}</h3>
+            <article class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+              <p class="eyebrow text-slate-500">{item.period}</p>
+              <h3 class="mt-2 text-xl font-semibold text-slate-950">{item.title}</h3>
               <p class="mt-1 text-sm font-medium text-slate-600">{item.school}</p>
               <p class="mt-3 text-sm leading-6 text-slate-500">{item.note}</p>
             </article>
@@ -55,11 +55,11 @@ const toolGroups = [
       </div>
       <div>
         <SectionHeading eyebrow="Certifications" title="Selected certifications and recognitions." />
-        <div class="rounded-[1.5rem] border border-slate-200 bg-white p-6">
+        <div class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
           <ul class="space-y-3">
             {certifications.map((item) => (
-              <li class="flex gap-3 rounded-2xl bg-slate-50 p-4 text-sm font-medium text-slate-700">
-                <span class="mt-1 h-2 w-2 rounded-full bg-blueprint"></span>
+              <li class="flex gap-3 rounded-lg bg-slate-50 p-4 text-sm font-medium text-slate-700">
+                <span class="mt-1 h-2 w-2 rounded-sm bg-slate-950"></span>
                 <span>{item}</span>
               </li>
             ))}

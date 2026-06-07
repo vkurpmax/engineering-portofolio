@@ -1,9 +1,9 @@
 export const profile = {
-  name: 'Ir. Putu Herdy Kurniawan, S.Tr.T.',
+  name: 'Putu Herdy Kurniawan',
   shortName: 'Putu Herdy',
-  role: 'Process Engineer · HVAC · Instrumentation · BMS · Energy Efficiency',
-  location: 'Jakarta, Indonesia',
-  email: 'your.email@example.com',
+  role: 'Process Engineer / HVAC / Instrumentation / BMS / Energy Efficiency',
+  location: 'Indonesia',
+  email: 'putu.herdy3@example.com',
   phone: '+62 xxx xxxx xxxx',
   linkedin: 'https://www.linkedin.com/in/putuherdy/',
   github: '#',
@@ -23,7 +23,7 @@ export const navItems = [
 export const highlights = [
   { value: '3+', label: 'years across engineering roles' },
   { value: '3', label: 'major industrial environments' },
-  { value: '10–15%', label: 'workflow efficiency improvement exposure' },
+  { value: '10-15%', label: 'workflow efficiency improvement exposure' },
   { value: '20+', label: 'tools, standards, and technical systems' }
 ];
 
@@ -58,10 +58,10 @@ export const experience = [
   {
     slug: 'daewoong-pharmaceutical-engineering-hse',
     company: 'PT Daewoong Pharmaceutical Indonesia',
-    role: 'Engineer — Engineering & HSE',
-    period: 'Jan 2026 — Present',
+    role: 'Facility Engineer',
+    period: 'Jan 2026 - Present',
     location: 'Indonesia',
-    domain: 'Pharmaceutical Engineering · HVAC/BMS · Utility · HSE',
+    domain: 'Pharmaceutical Engineering / HVAC/BMS / Utility / HSE',
     summary:
       'Supports pharmaceutical facility engineering operation with focus on HVAC, BMS/BAS, utilities, energy improvement, vendor coordination, and HSE reporting.',
     bullets: [
@@ -90,15 +90,15 @@ export const experience = [
     slug: 'maxxtec-process-engineering',
     company: 'PT Maxxtec Teknologi Indonesia',
     role: 'Process Engineer',
-    period: 'Jan 2025 — Nov 2025',
-    location: 'South Jakarta, Indonesia',
-    domain: 'Process Engineering · Thermal Oil · Energy Systems',
+    period: 'Jan 2025 - Nov 2025',
+    location: 'Indonesia',
+    domain: 'Process Engineering / Thermal Oil / Energy Systems',
     summary:
       'Handled process engineering support for thermal oil heating and energy system projects, including calculation, drawing, and technical documentation.',
     bullets: [
       'Supported multiple concurrent international engineering projects using HTRI, Autodesk Inventor, AutoCAD, DraftSight, Excel, and technical standards.',
       'Contributed to thermal oil heater, nitrogen blanketing, condensate separator, pump, basket filter, and heat transfer equipment work scopes.',
-      'Improved engineering workflow efficiency by approximately 10–15% through structured documentation and project execution discipline.'
+      'Improved engineering workflow efficiency by approximately 10-15% through structured documentation and project execution discipline.'
     ],
     detail: {
       overview:
@@ -121,9 +121,9 @@ export const experience = [
     slug: 'huayue-hpal-instrumentation',
     company: 'PT Huayue Nickel Cobalt',
     role: 'Instrument Mechanic',
-    period: 'Oct 2023 — Dec 2024',
-    location: 'IMIP Morowali, Indonesia',
-    domain: 'Instrumentation · Control · HPAL Nickel Plant',
+    period: 'Oct 2023 - Dec 2024',
+    location: 'Morowali, Indonesia',
+    domain: 'Instrumentation / Control / HPAL Nickel Plant',
     summary:
       'Performed instrumentation maintenance and troubleshooting in HPAL nickel processing plant environment.',
     bullets: [
@@ -169,24 +169,35 @@ export type Project = {
     body: string[];
     bullets?: string[];
   }[];
+  caseStudy?: {
+    overview: string[];
+    context: string[];
+    challenge: string[];
+    responsibility: string[];
+    approach: string[];
+    tools: string[];
+    resultImpact: string[];
+    lessonsLearned: string[];
+    relatedExpertise: string[];
+  };
 };
 
 export const projects: Project[] = [
   {
     slug: 'pharmaceutical-hvac-bms',
     title: 'Pharmaceutical HVAC & BMS Reliability Support',
-    eyebrow: 'Facility Engineering · Pharmaceutical',
+    eyebrow: 'Facility Engineering / Pharmaceutical',
     category: 'HVAC / BMS / GMP Support',
     year: '2026',
     location: 'PT Daewoong Pharmaceutical Indonesia',
     summary:
-      'Technical portfolio case study on HVAC/BMS troubleshooting, AHU performance follow-up, vendor coordination, and reliability monitoring in a pharmaceutical facility environment.',
+      'A professional case study on HVAC/BMS reliability support, AHU/VRF follow-up, vendor coordination, and practical engineering reporting in a pharmaceutical facility environment.',
     problem:
-      'Pharmaceutical facility HVAC operation requires stable temperature, reliable equipment response, disciplined troubleshooting, and careful coordination because air handling and room condition stability directly affect operational readiness.',
+      'Pharmaceutical HVAC support requires disciplined troubleshooting, careful communication, and realistic follow-up because room condition stability, equipment response, and documentation quality all influence operational readiness.',
     role:
-      'Supported engineering follow-up through BAS/BMS review, operational data checking, field coordination, vendor communication, issue documentation, and technical reporting.',
+      'Supported HVAC/BMS follow-up through available BAS/BMS review, field coordination, vendor communication, issue documentation, and concise technical reporting.',
     outcome:
-      'Improved technical visibility of HVAC operation and supported more structured troubleshooting, follow-up, and management reporting for facility reliability.',
+      'Improved visibility of HVAC issue follow-up by organizing observations, action history, vendor input, and next steps into clearer engineering updates.',
     coverStyle: 'hvac',
     metrics: [
       { value: 'BMS', label: 'data review and monitoring' },
@@ -194,6 +205,53 @@ export const projects: Project[] = [
       { value: 'GMP', label: 'facility engineering context' }
     ],
     tools: ['Azbil savic-net G5', 'BMS/BAS', 'LG Multi V VRF', 'AHU', 'Excel', 'Vendor coordination', 'Technical reporting'],
+    caseStudy: {
+      overview: [
+        'This case study summarizes facility engineering support for HVAC/BMS reliability in a pharmaceutical environment. The work focused on reviewing available operating information, coordinating field checks, following up with vendors, and translating technical findings into clear engineering updates.',
+        'The page is written as a portfolio case study and intentionally avoids confidential room data, process information, alarm values, and internal operating details.'
+      ],
+      context: [
+        'In pharmaceutical facilities, HVAC systems support controlled room conditions, equipment readiness, and reliable day-to-day operation. BMS/BAS observations can help identify abnormal behavior, but those indications still need practical field confirmation and disciplined follow-up.',
+        'The engineering work required coordination between internal stakeholders, service vendors, and available system information while keeping communication concise enough for management review.'
+      ],
+      challenge: [
+        'The main challenge was to keep troubleshooting structured without exposing sensitive facility details or relying on incomplete assumptions. HVAC issues often involve multiple possible causes across equipment status, controls response, maintenance history, and site operating constraints.',
+        'Clear documentation was needed so each follow-up item had a visible symptom, action history, responsible party, and next step.'
+      ],
+      responsibility: [
+        'Reviewed available HVAC/BMS indications and issue chronology to support engineering follow-up.',
+        'Supported communication with vendors and internal teams during AHU/VRF troubleshooting activity.',
+        'Documented observed symptoms, suspected causes, completed actions, open points, and recommended next steps.',
+        'Prepared concise engineering updates that could be understood by both technical stakeholders and management.'
+      ],
+      approach: [
+        'Started from symptom definition and system boundary: affected equipment, observed behavior, available BMS/BAS indication, and operational context.',
+        'Compared available trends, alarms, and operating observations where accessible, then aligned those findings with field checks and vendor/service input.',
+        'Tracked follow-up in a simple engineering format: observation, action taken, responsible party, current status, and next action.',
+        'Summarized findings in professional language without disclosing sensitive facility data or internal operating parameters.'
+      ],
+      tools: [
+        'The tools and systems listed represent the engineering environment, monitoring categories, and coordination methods used in the case study. They do not disclose confidential operating values, internal room information, or proprietary process data.'
+      ],
+      resultImpact: [
+        'Improved clarity of HVAC issue follow-up by organizing observations, action history, vendor input, and next steps.',
+        'Supported more structured communication between engineering, operations-related stakeholders, and service vendors.',
+        'Helped translate technical troubleshooting into management-ready updates while preserving confidentiality.'
+      ],
+      lessonsLearned: [
+        'BMS/BAS information is most useful when paired with field confirmation and equipment context.',
+        'A clear issue chronology reduces ambiguity across shifts, vendors, and management communication.',
+        'In GMP-aware environments, documentation discipline and communication quality are as important as technical correction.'
+      ],
+      relatedExpertise: [
+        'Pharmaceutical facility engineering',
+        'HVAC/AHU/VRF reliability',
+        'BMS/BAS monitoring',
+        'Vendor coordination',
+        'Technical reporting',
+        'GMP-aware engineering support'
+      ]
+    },
     sections: [
       {
         title: 'Context',
@@ -237,7 +295,7 @@ export const projects: Project[] = [
   {
     slug: 'thermal-oil-heater-process-engineering',
     title: 'Thermal Oil Heater & Energy System Engineering',
-    eyebrow: 'Process Engineering · International Project',
+    eyebrow: 'Process Engineering / International Project',
     category: 'Process / Thermal System',
     year: '2025',
     location: 'PT Maxxtec Teknologi Indonesia',
@@ -252,8 +310,8 @@ export const projects: Project[] = [
     coverStyle: 'process',
     metrics: [
       { value: '7.9 MW', label: 'thermal oil heater project exposure' },
-      { value: '2–3', label: 'concurrent project handling' },
-      { value: '10–15%', label: 'workflow efficiency improvement' }
+      { value: '2-3', label: 'concurrent project handling' },
+      { value: '10-15%', label: 'workflow efficiency improvement' }
     ],
     tools: ['HTRI', 'Autodesk Inventor', 'AutoCAD', 'DraftSight', 'Excel', 'PED 2014/68/EU', 'AD 2000', 'EN Standards', 'API 2000'],
     sections: [
@@ -298,9 +356,9 @@ export const projects: Project[] = [
   {
     slug: 'hpal-instrumentation-maintenance',
     title: 'HPAL Nickel Plant Instrumentation Maintenance',
-    eyebrow: 'Industrial Plant · Instrumentation',
+    eyebrow: 'Industrial Plant / Instrumentation',
     category: 'Instrumentation / Control',
-    year: '2023–2024',
+    year: '2023-2024',
     location: 'PT Huayue Nickel Cobalt',
     summary:
       'Portfolio case study on field instrumentation work in HPAL nickel processing plant, covering calibration, loop checking, troubleshooting, shutdown support, and reliability maintenance.',
@@ -359,7 +417,7 @@ export const projects: Project[] = [
   {
     slug: 'energy-utility-improvement',
     title: 'Energy & Utility Improvement Initiatives',
-    eyebrow: 'Facility Improvement · Energy Efficiency',
+    eyebrow: 'Facility Improvement / Energy Efficiency',
     category: 'Utility / Energy / Automation',
     year: '2026',
     location: 'Pharmaceutical Facility Engineering',
@@ -434,9 +492,9 @@ export const education = [
     note: 'Professional engineering development program.'
   },
   {
-    title: 'Bachelor of Applied Engineering — Mechatronics Engineering',
+    title: 'Bachelor of Applied Engineering - Mechatronics Engineering',
     school: 'Politeknik Negeri Ujung Pandang',
-    period: '2019 — 2023',
+    period: '2019 - 2023',
     note: 'Graduated with strong foundation in mechatronics, automation, control, and engineering project development.'
   },
   {
@@ -450,7 +508,6 @@ export const education = [
 export const certifications = [
   'Ahli K3 Umum',
   'Plate Welder 3G GTAW',
-  'Certified Remote Pilot',
-  'Safety Excellence Award',
-  'Engineering and technical training programs'
+  'Shielded Metal Arc Welder 3G SMAW',
+  'Certified Remote Pilot'
 ];

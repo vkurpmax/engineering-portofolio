@@ -3,52 +3,52 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import { profile } from '@/data/portfolio';
 ---
-<BaseLayout title="Contact — Putu Herdy Kurniawan" description="Contact Putu Herdy Kurniawan for engineering opportunities and professional networking.">
+<BaseLayout title="Contact - Putu Herdy Kurniawan" description="Contact Putu Herdy Kurniawan for engineering opportunities and professional networking.">
   <section class="relative overflow-hidden bg-white py-16 sm:py-24">
     <div class="absolute inset-0 grid-paper opacity-40"></div>
     <div class="container-page relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
-        <SectionHeading eyebrow="Contact" title="Let’s discuss engineering opportunities, project roles, or technical collaboration." description="I am open to professional opportunities related to process engineering, pharmaceutical engineering, HVAC, instrumentation, utility systems, and automation-related improvement." />
+        <SectionHeading eyebrow="Contact" title="Let's discuss engineering opportunities, project roles, or technical collaboration." description="I am open to professional opportunities related to process engineering, pharmaceutical engineering, HVAC, instrumentation, utility systems, and automation-related improvement." />
         <div class="space-y-3">
-          <a href={`mailto:${profile.email}`} class="flex items-center justify-between rounded-3xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-200 hover:bg-blue-50">
+          <a href={`mailto:${profile.email}`} class="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Email</p>
+              <p class="eyebrow text-slate-400">Email</p>
               <p class="mt-1 font-semibold text-slate-950">{profile.email}</p>
             </div>
-            <span>→</span>
+            <span class="text-sm font-semibold text-slate-500">Open</span>
           </a>
-          <a href={profile.linkedin} class="flex items-center justify-between rounded-3xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-200 hover:bg-blue-50">
+          <a href={profile.linkedin} class="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">LinkedIn</p>
+              <p class="eyebrow text-slate-400">LinkedIn</p>
               <p class="mt-1 font-semibold text-slate-950">linkedin.com/in/putuherdy</p>
             </div>
-            <span>→</span>
+            <span class="text-sm font-semibold text-slate-500">Open</span>
           </a>
-          <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Location</p>
+          <div class="rounded-lg border border-slate-200 bg-slate-50 p-5">
+            <p class="eyebrow text-slate-400">Location</p>
             <p class="mt-1 font-semibold text-slate-950">{profile.location}</p>
           </div>
         </div>
       </div>
 
-      <form class="engineering-card rounded-[2rem] p-6 sm:p-8" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
-        <p class="text-sm font-semibold uppercase tracking-[0.22em] text-blueprint">Message template</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.06em] text-slate-950">Send a message</h2>
+      <form class="engineering-card rounded-lg p-6 sm:p-8" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
+        <p class="eyebrow">Message template</p>
+        <h2 class="mt-3 text-3xl font-semibold text-slate-950">Send a message</h2>
         <p class="mt-3 text-sm leading-6 text-slate-500">This form uses email draft behavior. For a production contact form, connect Formspree, Web3Forms, or Cloudflare Workers later.</p>
         <div class="mt-8 grid gap-4">
           <label class="grid gap-2 text-sm font-semibold text-slate-700">
             Name
-            <input name="name" class="rounded-2xl border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-blueprint" placeholder="Your name" />
+            <input name="name" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="Your name" />
           </label>
           <label class="grid gap-2 text-sm font-semibold text-slate-700">
             Email
-            <input name="email" type="email" class="rounded-2xl border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-blueprint" placeholder="your.email@example.com" />
+            <input name="email" type="email" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="your.email@example.com" />
           </label>
           <label class="grid gap-2 text-sm font-semibold text-slate-700">
             Message
-            <textarea name="message" rows="6" class="rounded-2xl border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-blueprint" placeholder="Tell me about the opportunity or project..."></textarea>
+            <textarea name="message" rows="6" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="Tell me about the opportunity or project..."></textarea>
           </label>
-          <button class="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blueprint" type="submit">Open email draft</button>
+          <button class="btn-primary" type="submit">Open email draft</button>
         </div>
       </form>
     </div>

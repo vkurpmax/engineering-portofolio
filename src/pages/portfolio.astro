@@ -1,38 +1,80 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
-import ProjectCard from '@/components/ProjectCard.astro';
+import EngineeringVisual from '@/components/EngineeringVisual.astro';
 import { projects } from '@/data/portfolio';
 ---
-<BaseLayout title="Portfolio — Putu Herdy Kurniawan" description="Selected engineering project case studies covering pharmaceutical HVAC/BMS, process engineering, HPAL instrumentation, and energy improvement.">
-  <section class="relative overflow-hidden bg-white py-16 sm:py-24">
-    <div class="absolute inset-0 grid-paper opacity-45"></div>
-    <div class="container-page relative">
-      <SectionHeading eyebrow="Portfolio" title="Project case studies that show engineering thinking, not only job descriptions." description="Each project is structured with context, problem, role, approach, tools, and outcome so HR and technical managers can understand the value clearly." />
-      <div class="grid gap-3 sm:grid-cols-4">
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-          <p class="text-2xl font-semibold tracking-[-0.06em]">4</p>
+<BaseLayout title="Portfolio - Putu Herdy Kurniawan" description="Selected engineering project case studies covering pharmaceutical HVAC/BMS, process engineering, HPAL instrumentation, and energy improvement.">
+  <section class="relative overflow-hidden bg-white py-14 sm:py-20">
+    <div class="absolute inset-0 grid-paper opacity-40"></div>
+    <div class="container-page relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+      <SectionHeading eyebrow="Portfolio" title="Engineering case studies with scope, outcome, and technical context." description="A curated index of project work across pharmaceutical facilities, process systems, field instrumentation, and energy-related improvement." />
+      <div class="grid gap-3 sm:grid-cols-2">
+        <div class="stat-card">
+          <p class="text-2xl font-semibold">{projects.length}</p>
           <p class="mt-1 text-sm text-slate-500">case studies</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-          <p class="text-2xl font-semibold tracking-[-0.06em]">HVAC</p>
-          <p class="mt-1 text-sm text-slate-500">facility systems</p>
+        <div class="stat-card">
+          <p class="text-2xl font-semibold">Facility</p>
+          <p class="mt-1 text-sm text-slate-500">HVAC, BMS, utilities</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-          <p class="text-2xl font-semibold tracking-[-0.06em]">Process</p>
-          <p class="mt-1 text-sm text-slate-500">thermal systems</p>
+        <div class="stat-card">
+          <p class="text-2xl font-semibold">Process</p>
+          <p class="mt-1 text-sm text-slate-500">thermal systems and delivery</p>
         </div>
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-          <p class="text-2xl font-semibold tracking-[-0.06em]">Field</p>
-          <p class="mt-1 text-sm text-slate-500">instrumentation</p>
+        <div class="stat-card">
+          <p class="text-2xl font-semibold">Control</p>
+          <p class="mt-1 text-sm text-slate-500">instrumentation and monitoring</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-14 sm:py-20">
-    <div class="container-page grid gap-7">
-      {projects.map((project) => <ProjectCard project={project} featured />)}
+  <section class="py-12 sm:py-20">
+    <div class="container-page grid gap-5">
+      {projects.map((project, index) => (
+        <article class="engineering-card grid overflow-hidden rounded-lg transition hover:-translate-y-1 lg:grid-cols-[360px_1fr]">
+          <a href={`/projects/${project.slug}`} class="block bg-slate-50">
+            <EngineeringVisual variant={project.coverStyle} compact />
+          </a>
+
+          <div class="grid gap-6 p-6 sm:p-8 xl:grid-cols-[1fr_0.92fr]">
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="eyebrow rounded-md bg-slate-100 px-3 py-1 text-slate-600">{project.category}</span>
+                <span class="text-xs font-medium text-slate-400">{project.year}</span>
+              </div>
+              <h2 class="mt-4 text-balance text-2xl font-semibold text-slate-950 sm:text-3xl">
+                <a href={`/projects/${project.slug}`} class="hover:text-slate-700">{project.title}</a>
+              </h2>
+              <p class="mt-4 text-base leading-7 text-slate-600">{project.summary}</p>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                {project.tools.slice(0, 6).map((tool) => (
+                  <span class="chip bg-slate-50">{tool}</span>
+                ))}
+              </div>
+            </div>
+
+            <div class="grid content-between gap-5 rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <div>
+                <p class="eyebrow text-slate-500">Technical scope</p>
+                <p class="mt-2 text-sm leading-6 text-slate-700">{project.role}</p>
+              </div>
+              <div>
+                <p class="eyebrow text-slate-500">Outcome / impact</p>
+                <p class="mt-2 text-sm leading-6 text-slate-700">{project.outcome}</p>
+              </div>
+              <div class="flex items-center justify-between gap-4 border-t border-slate-200 pt-4">
+                <span class="text-xs font-semibold text-slate-400">Case {String(index + 1).padStart(2, '0')}</span>
+                <a href={`/projects/${project.slug}`} class="text-sm font-semibold text-slate-950 underline decoration-slate-300 underline-offset-4 hover:decoration-slate-950">
+                  Read full project
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
   </section>
 </BaseLayout>

@@ -5,92 +5,171 @@ import { projects } from '@/data/portfolio';
 import type { Project } from '@/data/portfolio';
 
 interface Props { project: Project; }
+type CaseStudySection = {
+  id: string;
+  title: string;
+  body: string[];
+  bullets?: string[];
+  chips?: string[];
+  metrics?: Project['metrics'];
+};
 const { project } = Astro.props;
 const related = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
+const caseStudy = project.caseStudy;
+const navLinks = caseStudy
+  ? [
+      { id: 'overview', label: 'Overview' },
+      { id: 'context', label: 'Context' },
+      { id: 'engineering-challenge', label: 'Engineering challenge' },
+      { id: 'my-responsibility', label: 'My responsibility' },
+      { id: 'technical-approach', label: 'Technical approach' },
+      { id: 'tools-systems', label: 'Tools and systems' },
+      { id: 'result-impact', label: 'Result / impact' },
+      { id: 'lessons-learned', label: 'Lessons learned' },
+      { id: 'related-expertise', label: 'Related expertise' }
+    ]
+  : [
+      { id: 'overview', label: 'Overview' },
+      { id: 'challenge', label: 'Challenge' },
+      { id: 'role', label: 'Role' },
+      { id: 'impact', label: 'Impact' },
+      { id: 'details', label: 'Details' }
+    ];
+const caseStudySections: CaseStudySection[] = caseStudy
+  ? [
+      { id: 'overview', title: 'Overview', body: caseStudy.overview, metrics: project.metrics },
+      { id: 'context', title: 'Context', body: caseStudy.context },
+      { id: 'engineering-challenge', title: 'Engineering challenge', body: caseStudy.challenge },
+      { id: 'my-responsibility', title: 'My responsibility', body: [], bullets: caseStudy.responsibility },
+      { id: 'technical-approach', title: 'Technical approach', body: [], bullets: caseStudy.approach },
+      { id: 'tools-systems', title: 'Tools and systems used', body: caseStudy.tools, chips: project.tools },
+      { id: 'result-impact', title: 'Result / impact', body: [], bullets: caseStudy.resultImpact },
+      { id: 'lessons-learned', title: 'Lessons learned', body: [], bullets: caseStudy.lessonsLearned },
+      { id: 'related-expertise', title: 'Related expertise', body: [], chips: caseStudy.relatedExpertise }
+    ]
+  : [];
 ---
-<BaseLayout title={`${project.title} — Putu Herdy Portfolio`} description={project.summary}>
-  <section class="relative overflow-hidden border-b border-slate-200 bg-white py-16 sm:py-20">
+<BaseLayout title={`${project.title} - Putu Herdy Portfolio`} description={project.summary}>
+  <section class="relative overflow-hidden border-b border-slate-200 bg-white py-14 sm:py-20">
     <div class="absolute inset-0 grid-paper opacity-50"></div>
-    <div class="container-page relative grid gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
-      <div>
-        <a href="/portfolio" class="mb-7 inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-950 hover:text-slate-950">← Back to portfolio</a>
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blueprint">{project.eyebrow}</p>
-        <h1 class="mt-4 text-balance text-4xl font-semibold tracking-[-0.075em] text-slate-950 sm:text-5xl lg:text-6xl">{project.title}</h1>
+    <div class="container-page relative grid min-w-0 gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+      <div class="min-w-0">
+        <a href="/portfolio" class="btn-secondary mb-7 px-4 py-2"><- Back to portfolio</a>
+        <p class="eyebrow">{project.eyebrow}</p>
+        <h1 class="mt-4 break-words text-balance text-3xl font-semibold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">{project.title}</h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600">{project.summary}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <span class="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white">{project.category}</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600">{project.year}</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600">{project.location}</span>
+          <span class="chip border-slate-950 bg-slate-950 text-white">{project.category}</span>
+          <span class="chip">{project.year}</span>
+          <span class="chip">{project.location}</span>
         </div>
       </div>
-      <EngineeringVisual variant={project.coverStyle} />
+      <div class="min-w-0">
+        <EngineeringVisual variant={project.coverStyle} />
+      </div>
     </div>
   </section>
 
   <section class="py-14 sm:py-20">
     <div class="container-page grid gap-10 lg:grid-cols-[260px_1fr]">
       <aside class="no-print lg:sticky lg:top-24 lg:h-fit">
-        <div class="engineering-card rounded-[1.5rem] p-5">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Case study</p>
+        <div class="engineering-card rounded-lg p-5">
+          <p class="eyebrow text-slate-400">Case study</p>
           <nav class="mt-4 space-y-2 text-sm font-medium text-slate-600">
-            <a href="#overview" class="block rounded-xl px-3 py-2 hover:bg-slate-100 hover:text-slate-950">Overview</a>
-            <a href="#challenge" class="block rounded-xl px-3 py-2 hover:bg-slate-100 hover:text-slate-950">Challenge</a>
-            <a href="#role" class="block rounded-xl px-3 py-2 hover:bg-slate-100 hover:text-slate-950">Role</a>
-            <a href="#impact" class="block rounded-xl px-3 py-2 hover:bg-slate-100 hover:text-slate-950">Impact</a>
-            <a href="#details" class="block rounded-xl px-3 py-2 hover:bg-slate-100 hover:text-slate-950">Details</a>
+            {navLinks.map((link) => (
+              <a href={`#${link.id}`} class="block rounded-md px-3 py-2 hover:bg-slate-100 hover:text-slate-950">{link.label}</a>
+            ))}
           </nav>
         </div>
       </aside>
 
       <article class="project-prose">
-        <div id="overview" class="grid gap-5 sm:grid-cols-3">
-          {project.metrics.map((metric) => (
-            <div class="engineering-card rounded-[1.5rem] p-6">
-              <p class="text-3xl font-semibold tracking-[-0.06em] text-slate-950">{metric.value}</p>
-              <p class="mt-2 text-sm leading-6 text-slate-500">{metric.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <section id="challenge" class="mt-10 rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-          <h2>Problem / engineering challenge</h2>
-          <p>{project.problem}</p>
-        </section>
-
-        <section id="role" class="mt-6 rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-          <h2>My role</h2>
-          <p>{project.role}</p>
-        </section>
-
-        <section id="impact" class="mt-6 rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-          <h2>Outcome / impact</h2>
-          <p>{project.outcome}</p>
-        </section>
-
-        <section class="mt-8 rounded-[2rem] border border-slate-200 bg-slate-950 p-6 text-white sm:p-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-blue-200">Tools, systems, and references</p>
-          <div class="mt-5 flex flex-wrap gap-2">
-            {project.tools.map((tool) => <span class="rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-sm text-slate-100">{tool}</span>)}
+        {caseStudy ? (
+          <div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
+            {caseStudySections.map((section, index) => (
+              <section id={section.id} class="border-b border-slate-200 p-6 last:border-b-0 sm:p-8 lg:p-10">
+                <div class="grid gap-4 md:grid-cols-[92px_1fr]">
+                  <div>
+                    <span class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 bg-slate-50 text-sm font-semibold text-slate-500">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div class="min-w-0">
+                    <h2>{section.title}</h2>
+                    {section.body.map((paragraph) => <p>{paragraph}</p>)}
+                    {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+                    {section.metrics && (
+                      <div class="mt-6 grid overflow-hidden rounded-lg border border-slate-200 bg-slate-50/70 sm:grid-cols-3">
+                        {section.metrics.map((metric) => (
+                          <div class="border-b border-slate-200 p-5 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+                            <p class="mb-0 text-2xl font-semibold text-slate-950">{metric.value}</p>
+                            <p class="mb-0 mt-1 text-sm leading-6 text-slate-500">{metric.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {section.chips && (
+                      <div class="mt-5 flex flex-wrap gap-2">
+                        {section.chips.map((chip) => <span class="chip bg-slate-50">{chip}</span>)}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
+            ))}
           </div>
-        </section>
-
-        <section id="details" class="mt-10">
-          {project.sections.map((section) => (
-            <div class="mb-8 rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-              <h2>{section.title}</h2>
-              {section.body.map((paragraph) => <p>{paragraph}</p>)}
-              {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+        ) : (
+          <>
+            <div id="overview" class="grid gap-5 sm:grid-cols-3">
+              {project.metrics.map((metric) => (
+                <div class="engineering-card rounded-lg p-6">
+                  <p class="text-3xl font-semibold text-slate-950">{metric.value}</p>
+                  <p class="mt-2 text-sm leading-6 text-slate-500">{metric.label}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </section>
+
+            <section id="challenge" class="mt-10 rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+              <h2>Problem / engineering challenge</h2>
+              <p>{project.problem}</p>
+            </section>
+
+            <section id="role" class="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+              <h2>My role</h2>
+              <p>{project.role}</p>
+            </section>
+
+            <section id="impact" class="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+              <h2>Outcome / impact</h2>
+              <p>{project.outcome}</p>
+            </section>
+
+            <section class="mt-8 rounded-lg border border-slate-800 bg-slate-950 p-6 text-white sm:p-8">
+              <p class="eyebrow text-slate-300">Tools, systems, and references</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {project.tools.map((tool) => <span class="rounded-md border border-white/10 bg-white/10 px-3 py-1.5 text-sm text-slate-100">{tool}</span>)}
+              </div>
+            </section>
+
+            <section id="details" class="mt-10">
+              {project.sections.map((section) => (
+                <div class="mb-8 rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+                  <h2>{section.title}</h2>
+                  {section.body.map((paragraph) => <p>{paragraph}</p>)}
+                  {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+                </div>
+              ))}
+            </section>
+          </>
+        )}
 
         <section class="mt-10 border-t border-slate-200 pt-10">
-          <p class="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Explore more projects</p>
+          <p class="eyebrow mb-5 text-slate-400">Explore more projects</p>
           <div class="grid gap-4 sm:grid-cols-3">
             {related.map((item) => (
-              <a href={`/projects/${item.slug}`} class="rounded-3xl border border-slate-200 bg-white p-5 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-slate-200/70">
-                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-blueprint">{item.category}</p>
-                <h3 class="mt-3 text-lg font-semibold tracking-[-0.04em] text-slate-950">{item.title}</h3>
+              <a href={`/projects/${item.slug}`} class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md">
+                <p class="eyebrow text-slate-500">{item.category}</p>
+                <h3 class="mt-3 text-lg font-semibold text-slate-950">{item.title}</h3>
               </a>
             ))}
           </div>

@@ -9,45 +9,43 @@ export function getStaticPaths() {
 const { item } = Astro.props;
 const visual = item.slug.includes('maxxtec') ? 'process' : item.slug.includes('huayue') ? 'instrument' : 'hvac';
 ---
-<BaseLayout title={`${item.role} at ${item.company} — Putu Herdy Portfolio`} description={item.summary}>
+<BaseLayout title={`${item.role} at ${item.company} - Putu Herdy Portfolio`} description={item.summary}>
   <section class="relative overflow-hidden border-b border-slate-200 bg-white py-16 sm:py-20">
     <div class="absolute inset-0 grid-paper opacity-40"></div>
-    <div class="container-page relative grid gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
-      <div>
-        <a href="/resume" class="mb-7 inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-slate-950 hover:text-slate-950">← Back to resume</a>
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-blueprint">{item.domain}</p>
-        <h1 class="mt-4 text-balance text-4xl font-semibold tracking-[-0.075em] text-slate-950 sm:text-5xl lg:text-6xl">{item.role}</h1>
+    <div class="container-page relative grid min-w-0 gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+      <div class="min-w-0">
+        <a href="/resume" class="btn-secondary mb-7 px-4 py-2"><- Back to resume</a>
+        <p class="eyebrow">{item.domain}</p>
+        <h1 class="mt-4 text-balance text-4xl font-semibold text-slate-950 sm:text-5xl lg:text-6xl">{item.role}</h1>
         <p class="mt-5 text-xl font-semibold text-slate-700">{item.company}</p>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-600">{item.detail.overview}</p>
         <div class="mt-8 flex flex-wrap gap-3">
-          <span class="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white">{item.period}</span>
-          <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600">{item.location}</span>
+          <span class="chip border-slate-950 bg-slate-950 text-white">{item.period}</span>
+          <span class="chip">{item.location}</span>
         </div>
       </div>
-      <div class="rounded-[2rem] border border-slate-200 bg-slate-50/80 p-4 shadow-xl shadow-slate-200/60">
-        <EngineeringVisual variant={visual} />
-      </div>
+      <EngineeringVisual variant={visual} />
     </div>
   </section>
 
   <section class="py-14 sm:py-20">
     <div class="container-page grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-      <article class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-blueprint">Responsibilities</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.06em] text-slate-950">What I handled</h2>
+      <article class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <p class="eyebrow">Responsibilities</p>
+        <h2 class="mt-3 text-3xl font-semibold text-slate-950">What I handled</h2>
         <ul class="mt-6 space-y-3">
           {item.detail.responsibilities.map((point) => (
-            <li class="rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-600">{point}</li>
+            <li class="rounded-lg bg-slate-50 p-4 text-sm leading-6 text-slate-600">{point}</li>
           ))}
         </ul>
       </article>
 
-      <article class="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-blueprint">Role impact</p>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-0.06em] text-slate-950">Value delivered</h2>
+      <article class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+        <p class="eyebrow">Role impact</p>
+        <h2 class="mt-3 text-3xl font-semibold text-slate-950">Value delivered</h2>
         <ul class="mt-6 space-y-3">
           {item.detail.achievements.map((point) => (
-            <li class="rounded-2xl bg-slate-50 p-4 text-sm leading-6 text-slate-600">{point}</li>
+            <li class="rounded-lg bg-slate-50 p-4 text-sm leading-6 text-slate-600">{point}</li>
           ))}
         </ul>
       </article>
@@ -56,10 +54,10 @@ const visual = item.slug.includes('maxxtec') ? 'process' : item.slug.includes('h
 
   <section class="border-y border-slate-200 bg-slate-950 py-14 text-white sm:py-16">
     <div class="container-page">
-      <p class="text-xs font-semibold uppercase tracking-[0.22em] text-blue-200">Systems, tools, and knowledge</p>
+      <p class="eyebrow text-slate-300">Systems, tools, and knowledge</p>
       <div class="mt-6 flex flex-wrap gap-2">
         {item.detail.systems.map((tool) => (
-          <span class="rounded-full border border-white/10 bg-white/10 px-3.5 py-2 text-sm text-slate-100">{tool}</span>
+          <span class="rounded-md border border-white/10 bg-white/10 px-3.5 py-2 text-sm text-slate-100">{tool}</span>
         ))}
       </div>
     </div>
@@ -68,10 +66,10 @@ const visual = item.slug.includes('maxxtec') ? 'process' : item.slug.includes('h
   <section class="py-14 sm:py-20">
     <div class="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Next</p>
-        <h2 class="mt-2 text-3xl font-semibold tracking-[-0.06em] text-slate-950">Explore project case studies.</h2>
+        <p class="eyebrow text-slate-400">Next</p>
+        <h2 class="mt-2 text-3xl font-semibold text-slate-950">Explore project case studies.</h2>
       </div>
-      <a href="/portfolio" class="inline-flex w-fit rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blueprint">View portfolio</a>
+      <a href="/portfolio" class="btn-primary w-fit">View portfolio</a>
     </div>
   </section>
 </BaseLayout>
