@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.55"/>
+  <circle cx="1060" cy="100" r="190" fill="#dbeafe" opacity="0.7"/>
+  <rect x="86" y="86" width="1028" height="458" rx="38" fill="white" stroke="#e2e8f0"/>
+  <text x="130" y="175" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" fill="#1d4ed8">ENGINEERING PORTFOLIO</text>
+  <text x="130" y="280" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-5" fill="#0f172a">Putu Herdy Kurniawan</text>
+  <text x="130" y="345" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" fill="#475569">Process Engineer · HVAC · Instrumentation · BMS · Energy Efficiency</text>
+  <line x1="130" y1="410" x2="620" y2="410" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+  <g transform="translate(775 205)" fill="none" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="40" width="170" height="90" rx="18" fill="#eff6ff"/>
+    <circle cx="48" cy="86" r="19"/>
+    <circle cx="113" cy="86" r="19"/>
+    <path d="M170 86h100v80h70"/>
+    <rect x="340" y="126" width="150" height="94" rx="18" fill="white" stroke="#64748b"/>
+    <path d="M372 162h84M372 190h54" stroke="#64748b"/>
+    <circle cx="270" cy="166" r="28" fill="white"/>
+    <path d="M256 166h28M270 152v28"/>
+  </g>
+</svg>

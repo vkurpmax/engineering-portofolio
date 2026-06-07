@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import EngineeringVisual from '@/components/EngineeringVisual.astro';
+import { profile } from '@/data/portfolio';
+---
+<BaseLayout title="About — Putu Herdy Kurniawan" description="About Putu Herdy Kurniawan and his engineering portfolio focus.">
+  <section class="bg-white py-16 sm:py-24">
+    <div class="container-page grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div>
+        <SectionHeading eyebrow="About" title="I position engineering as a bridge between technical reliability and business impact." description={profile.headline} />
+        <div class="space-y-5 text-lg leading-8 text-slate-600">
+          <p>
+            My background combines hands-on instrumentation work, process engineering delivery, and pharmaceutical facility engineering. This gives me a practical perspective: engineering is not only calculation or maintenance, but the ability to understand problems, coordinate stakeholders, and produce reliable outcomes.
+          </p>
+          <p>
+            I am interested in roles and projects related to process engineering, pharmaceutical engineering, HVAC/BMS, instrumentation, utility systems, energy efficiency, and automation-enabled facility improvement.
+          </p>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/portfolio" class="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:bg-blueprint">View portfolio</a>
+          <a href="/contact" class="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-950 hover:border-slate-950">Contact me</a>
+        </div>
+      </div>
+      <EngineeringVisual variant="process" />
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20">
+    <div class="container-page">
+      <SectionHeading eyebrow="Working principles" title="How I want this portfolio to be read." />
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="engineering-card rounded-[1.5rem] p-7">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blueprint">01</p>
+          <h3 class="mt-4 text-xl font-semibold tracking-[-0.04em]">Practical</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">The projects emphasize real engineering work: troubleshooting, technical follow-up, field understanding, and documentation.</p>
+        </article>
+        <article class="engineering-card rounded-[1.5rem] p-7">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blueprint">02</p>
+          <h3 class="mt-4 text-xl font-semibold tracking-[-0.04em]">Measured</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">The goal is to connect technical work with measurable results such as reliability, efficiency, safety, and management clarity.</p>
+        </article>
+        <article class="engineering-card rounded-[1.5rem] p-7">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blueprint">03</p>
+          <h3 class="mt-4 text-xl font-semibold tracking-[-0.04em]">Professional</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">The writing avoids unnecessary jargon and presents engineering work in a way that HR and technical managers can quickly understand.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

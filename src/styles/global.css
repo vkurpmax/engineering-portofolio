@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(29, 78, 216, 0.065), transparent 28rem),
+    radial-gradient(circle at 92% 10%, rgba(15, 23, 42, 0.055), transparent 24rem),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 44%, #f8fafc 100%);
+  color: #0f172a;
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+
+::selection {
+  background: #dbeafe;
+  color: #0b1f3a;
+}
+
+.container-page {
+  width: min(1160px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.grid-paper {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.engineering-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.76));
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 22px 80px rgba(15, 23, 42, 0.065);
+  backdrop-filter: blur(16px);
+}
+
+.engineering-card:hover {
+  box-shadow: 0 26px 90px rgba(15, 23, 42, 0.095);
+}
+
+
+.project-prose p {
+  margin-bottom: 1rem;
+  color: #334155;
+  line-height: 1.75;
+}
+
+.project-prose h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+  font-weight: 750;
+}
+
+.project-prose h3 {
+  margin-top: 2rem;
+  margin-bottom: .75rem;
+  font-size: 1.05rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.project-prose ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.project-prose li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin: .65rem 0;
+  color: #334155;
+  line-height: 1.65;
+}
+
+.project-prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .72rem;
+  width: .42rem;
+  height: .42rem;
+  border-radius: 999px;
+  background: #1d4ed8;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .engineering-card { box-shadow: none; }
+}

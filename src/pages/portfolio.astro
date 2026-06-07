@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { projects } from '@/data/portfolio';
+---
+<BaseLayout title="Portfolio — Putu Herdy Kurniawan" description="Selected engineering project case studies covering pharmaceutical HVAC/BMS, process engineering, HPAL instrumentation, and energy improvement.">
+  <section class="relative overflow-hidden bg-white py-16 sm:py-24">
+    <div class="absolute inset-0 grid-paper opacity-45"></div>
+    <div class="container-page relative">
+      <SectionHeading eyebrow="Portfolio" title="Project case studies that show engineering thinking, not only job descriptions." description="Each project is structured with context, problem, role, approach, tools, and outcome so HR and technical managers can understand the value clearly." />
+      <div class="grid gap-3 sm:grid-cols-4">
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-2xl font-semibold tracking-[-0.06em]">4</p>
+          <p class="mt-1 text-sm text-slate-500">case studies</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-2xl font-semibold tracking-[-0.06em]">HVAC</p>
+          <p class="mt-1 text-sm text-slate-500">facility systems</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-2xl font-semibold tracking-[-0.06em]">Process</p>
+          <p class="mt-1 text-sm text-slate-500">thermal systems</p>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <p class="text-2xl font-semibold tracking-[-0.06em]">Field</p>
+          <p class="mt-1 text-sm text-slate-500">instrumentation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 sm:py-20">
+    <div class="container-page grid gap-7">
+      {projects.map((project) => <ProjectCard project={project} featured />)}
+    </div>
+  </section>
+</BaseLayout>

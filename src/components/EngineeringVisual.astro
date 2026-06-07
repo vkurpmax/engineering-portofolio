@@ -1,0 +1,53 @@
+---
+interface Props { variant?: 'hvac' | 'process' | 'instrument' | 'energy' | 'hero'; compact?: boolean; }
+const { variant = 'hero', compact = false } = Astro.props;
+const labelMap = {
+  hero: 'systems architecture',
+  hvac: 'hvac / bms',
+  process: 'process system',
+  instrument: 'instrument loop',
+  energy: 'energy flow'
+};
+const label = labelMap[variant];
+---
+<div class:list={['relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_20px_80px_rgba(15,23,42,0.08)]', compact ? 'p-5' : 'p-8']}>
+  <div class="absolute inset-0 grid-paper opacity-60"></div>
+  <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-blue-100 blur-3xl"></div>
+  <div class="relative">
+    <div class="mb-6 flex items-center justify-between">
+      <span class="rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</span>
+      <span class="h-2 w-2 rounded-full bg-blueprint"></span>
+    </div>
+    <svg viewBox="0 0 520 320" class="h-auto w-full" role="img" aria-label="Minimal engineering system diagram">
+      <defs>
+        <linearGradient id={`g-${variant}`} x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#1d4ed8" stop-opacity="0.18" />
+          <stop offset="1" stop-color="#0f172a" stop-opacity="0.04" />
+        </linearGradient>
+      </defs>
+      <rect x="20" y="40" width="150" height="90" rx="18" fill={`url(#g-${variant})`} stroke="#cbd5e1" />
+      <rect x="54" y="70" width="28" height="28" rx="14" fill="none" stroke="#1d4ed8" stroke-width="3" />
+      <rect x="105" y="70" width="28" height="28" rx="14" fill="none" stroke="#1d4ed8" stroke-width="3" />
+      <path d="M170 86 H255" stroke="#1d4ed8" stroke-width="4" stroke-linecap="round" />
+      <path d="M255 86 V160 H330" stroke="#1d4ed8" stroke-width="4" stroke-linecap="round" fill="none" />
+      <rect x="330" y="118" width="130" height="84" rx="18" fill="#fff" stroke="#94a3b8" stroke-width="2" />
+      <path d="M356 152 h78 M356 174 h50" stroke="#64748b" stroke-width="4" stroke-linecap="round" />
+      <circle cx="260" cy="160" r="24" fill="#fff" stroke="#1d4ed8" stroke-width="3" />
+      <path d="M248 160 h24 M260 148 v24" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" />
+      <rect x="58" y="190" width="92" height="54" rx="14" fill="#fff" stroke="#94a3b8" stroke-width="2" />
+      <path d="M150 216 H218" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+      <circle cx="232" cy="216" r="15" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+      <path d="M247 216 H330" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+      <path d="M78 218 h52" stroke="#64748b" stroke-width="4" stroke-linecap="round" />
+      <path d="M395 118 V72" stroke="#94a3b8" stroke-width="3" stroke-dasharray="7 9" />
+      <circle cx="395" cy="58" r="18" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3" />
+      <path d="M386 58 h18 M395 49 v18" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round" />
+      <path d="M356 244 h94" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" />
+      <path d="M376 264 h54" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" />
+      <g fill="#1d4ed8" opacity="0.15">
+        <circle cx="35" cy="280" r="3" /><circle cx="55" cy="280" r="3" /><circle cx="75" cy="280" r="3" />
+        <circle cx="35" cy="300" r="3" /><circle cx="55" cy="300" r="3" /><circle cx="75" cy="300" r="3" />
+      </g>
+    </svg>
+  </div>
+</div>
