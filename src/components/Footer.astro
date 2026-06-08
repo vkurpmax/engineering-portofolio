@@ -1,13 +1,18 @@
 ---
 import { profile } from '@/data/portfolio';
 const year = new Date().getFullYear();
+const mailtoHref = `mailto:${profile.email}`;
 ---
-<footer class="border-t border-slate-200 bg-white py-10">
-  <div class="container-page flex flex-col justify-between gap-4 md:flex-row md:items-center">
-    <div>
-      <p class="text-sm font-semibold text-slate-950">{profile.name}</p>
-      <p class="mt-1 max-w-xl text-sm text-slate-500">Engineering portfolio focused on practical engineering capability, project case studies, and measurable technical value.</p>
+<footer class="border-t border-slate-200 bg-white py-4">
+  <div class="container-page flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+    <div class="flex items-center gap-2">
+      <a href={mailtoHref} class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-800" aria-label="Email Putu Herdy">
+        <img src="/assets/icon-email.png" alt="" class="h-5 w-5" />
+      </a>
+      <a href={profile.linkedin} target="_blank" rel="noreferrer" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-950 transition hover:-translate-y-0.5 hover:bg-slate-800" aria-label="Open LinkedIn profile">
+        <img src="/assets/icon-linkedin.png" alt="" class="h-5 w-5" />
+      </a>
     </div>
-    <p class="text-sm text-slate-400">Copyright {year}. Built with Astro, Tailwind CSS, and Cloudflare Workers Static Assets.</p>
+    <p class="text-[11px] leading-5 text-slate-400">Copyright {year}. Built with Astro, Tailwind CSS, and Cloudflare Workers Static Assets.</p>
   </div>
 </footer>
