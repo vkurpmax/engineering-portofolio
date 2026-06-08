@@ -2,55 +2,67 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import { profile } from '@/data/portfolio';
+const mailSubject = encodeURIComponent('Engineering opportunity discussion');
+const mailBody = encodeURIComponent(
+  'Hello Putu,\n\nI would like to discuss an engineering opportunity or professional collaboration.\n\nBest regards,'
+);
+const mailtoHref = `mailto:${profile.email}?subject=${mailSubject}&body=${mailBody}`;
 ---
 <BaseLayout title="Contact - Putu Herdy Kurniawan" description="Contact Putu Herdy Kurniawan for engineering opportunities and professional networking.">
-  <section class="relative overflow-hidden bg-white py-16 sm:py-24">
+  <section class="relative overflow-hidden border-b border-slate-200 bg-white py-16 sm:py-24">
     <div class="absolute inset-0 grid-paper opacity-40"></div>
-    <div class="container-page relative grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-      <div>
-        <SectionHeading eyebrow="Contact" title="Let's discuss engineering opportunities, project roles, or technical collaboration." description="I am open to professional opportunities related to process engineering, pharmaceutical engineering, HVAC, instrumentation, utility systems, and automation-related improvement." />
-        <div class="space-y-3">
-          <a href={`mailto:${profile.email}`} class="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
+    <div class="container-page relative grid gap-10 lg:grid-cols-[1fr_420px] lg:items-center">
+      <div class="min-w-0">
+        <SectionHeading
+          eyebrow="Contact"
+          title="Let's discuss engineering opportunities."
+          description="I am open to engineering opportunities and professional conversations related to process engineering, pharmaceutical engineering, HVAC/BMS, instrumentation, utilities, and energy efficiency."
+        />
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={mailtoHref} class="btn-primary">Email me</a>
+          <a href={profile.linkedin} class="btn-secondary" target="_blank" rel="noreferrer">Connect on LinkedIn</a>
+        </div>
+      </div>
+
+      <aside class="engineering-card rounded-lg p-6 sm:p-8">
+        <p class="eyebrow text-slate-400">Contact details</p>
+        <h2 class="mt-3 text-3xl font-semibold leading-tight text-slate-950">Open to engineering roles and collaboration.</h2>
+        <p class="mt-4 text-sm leading-6 text-slate-600">
+          For role opportunities, technical discussions, or professional networking, email is the best first contact.
+        </p>
+
+        <div class="mt-8 space-y-3">
+          <a href={mailtoHref} class="flex min-w-0 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
             <div>
               <p class="eyebrow text-slate-400">Email</p>
-              <p class="mt-1 font-semibold text-slate-950">{profile.email}</p>
+              <p class="mt-1 break-words font-semibold text-slate-950">{profile.email}</p>
             </div>
-            <span class="text-sm font-semibold text-slate-500">Open</span>
+            <span class="shrink-0 text-sm font-semibold text-slate-500">Mail</span>
           </a>
-          <a href={profile.linkedin} class="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" class="flex min-w-0 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 transition hover:border-slate-300 hover:bg-white">
             <div>
               <p class="eyebrow text-slate-400">LinkedIn</p>
-              <p class="mt-1 font-semibold text-slate-950">linkedin.com/in/putuherdy</p>
+              <p class="mt-1 break-words font-semibold text-slate-950">linkedin.com/in/putuherdy</p>
             </div>
-            <span class="text-sm font-semibold text-slate-500">Open</span>
+            <span class="shrink-0 text-sm font-semibold text-slate-500">View</span>
           </a>
           <div class="rounded-lg border border-slate-200 bg-slate-50 p-5">
             <p class="eyebrow text-slate-400">Location</p>
             <p class="mt-1 font-semibold text-slate-950">{profile.location}</p>
           </div>
         </div>
-      </div>
 
-      <form class="engineering-card rounded-lg p-6 sm:p-8" action={`mailto:${profile.email}`} method="post" enctype="text/plain">
-        <p class="eyebrow">Message template</p>
-        <h2 class="mt-3 text-3xl font-semibold text-slate-950">Send a message</h2>
-        <p class="mt-3 text-sm leading-6 text-slate-500">This form uses email draft behavior. For a production contact form, connect Formspree, Web3Forms, or Cloudflare Workers later.</p>
-        <div class="mt-8 grid gap-4">
-          <label class="grid gap-2 text-sm font-semibold text-slate-700">
-            Name
-            <input name="name" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="Your name" />
-          </label>
-          <label class="grid gap-2 text-sm font-semibold text-slate-700">
-            Email
-            <input name="email" type="email" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="your.email@gmail.com" />
-          </label>
-          <label class="grid gap-2 text-sm font-semibold text-slate-700">
-            Message
-            <textarea name="message" rows="6" class="rounded-lg border border-slate-200 bg-white px-4 py-3 font-normal outline-none transition focus:border-slate-950" placeholder="Tell me about the opportunity or project..."></textarea>
-          </label>
-          <button class="btn-primary" type="submit">Open email draft</button>
+        <div class="mt-6 rounded-lg border border-slate-200 bg-white p-5">
+          <p class="eyebrow text-slate-400">Relevant topics</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="chip bg-slate-50">Process engineering</span>
+            <span class="chip bg-slate-50">HVAC / BMS</span>
+            <span class="chip bg-slate-50">Instrumentation</span>
+            <span class="chip bg-slate-50">Pharmaceutical engineering</span>
+            <span class="chip bg-slate-50">Energy efficiency</span>
+          </div>
         </div>
-      </form>
+      </aside>
     </div>
   </section>
 </BaseLayout>

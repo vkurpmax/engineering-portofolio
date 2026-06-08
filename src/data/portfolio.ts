@@ -58,16 +58,16 @@ export const experience = [
   {
     slug: 'daewoong-pharmaceutical-engineering-hse',
     company: 'PT Daewoong Pharmaceutical Indonesia',
-    role: 'Facility Engineer',
+    role: 'Engineer',
     period: 'Jan 2026 - Present',
     location: 'Indonesia',
     domain: 'Pharmaceutical Engineering / HVAC/BMS / Utility / HSE',
     summary:
       'Supports pharmaceutical facility engineering operation with focus on HVAC, BMS/BAS, utilities, energy improvement, vendor coordination, and HSE reporting.',
     bullets: [
-      'Supported BAS/BMS data review, HVAC troubleshooting, AHU performance follow-up, and vendor coordination for pharmaceutical facility reliability.',
-      'Worked on engineering improvement topics including energy efficiency, automatic lighting, utility evaluation, and electrical distribution issue follow-up.',
-      'Supported weekly HSE/engineering reporting and technical documentation for management communication.'
+      'Reviewed BAS/BMS observations, supported HVAC troubleshooting, and followed up AHU/VRF reliability topics.',
+      'Coordinated vendors and internal stakeholders for facility engineering issues, utilities, and energy improvement actions.',
+      'Prepared concise engineering/HSE documentation and management updates for operational follow-up.'
     ],
     detail: {
       overview:
@@ -96,9 +96,9 @@ export const experience = [
     summary:
       'Handled process engineering support for thermal oil heating and energy system projects, including calculation, drawing, and technical documentation.',
     bullets: [
-      'Supported multiple concurrent international engineering projects using HTRI, Autodesk Inventor, AutoCAD, DraftSight, Excel, and technical standards.',
-      'Contributed to thermal oil heater, nitrogen blanketing, condensate separator, pump, basket filter, and heat transfer equipment work scopes.',
-      'Improved engineering workflow efficiency by approximately 10-15% through structured documentation and project execution discipline.'
+      'Prepared process calculations, drawings, and technical documents for thermal oil heating and related energy system projects.',
+      'Coordinated equipment data across datasheets, drawings, standards, and project requirements.',
+      'Improved engineering workflow discipline through clearer documentation structure and repeatable review methods.'
     ],
     detail: {
       overview:
@@ -127,9 +127,9 @@ export const experience = [
     summary:
       'Performed instrumentation maintenance and troubleshooting in HPAL nickel processing plant environment.',
     bullets: [
-      'Performed installation, calibration, loop check, preventive maintenance, corrective maintenance, and shutdown work for plant instrumentation.',
-      'Worked with pressure, flow, level, temperature, pH/ORP instruments, control valves, DCS loop checks, and field troubleshooting.',
-      'Received Safety Excellence recognition for safe work contribution in industrial plant environment.'
+      'Performed installation, calibration, loop checking, preventive maintenance, corrective maintenance, and shutdown support for field instruments.',
+      'Troubleshot pressure, flow, level, temperature, pH/ORP, and control valve systems with DCS coordination.',
+      'Supported plant reliability and safe maintenance execution in HPAL processing plant operations.'
     ],
     detail: {
       overview:
@@ -486,28 +486,28 @@ export const tools = {
 
 export const education = [
   {
-    title: 'Professional Engineer Program',
     school: 'Institut Teknologi Bandung',
-    period: '2026',
-    note: 'Professional engineering development program.'
+    credential: 'Professional Engineer Program in Engineering Physics',
+    period: '2026 - 2026',
+    note: 'Professional engineering education focused on applied engineering practice and professional competence.'
   },
   {
-    title: 'Bachelor of Applied Engineering - Mechatronics Engineering',
     school: 'Politeknik Negeri Ujung Pandang',
+    credential: 'Bachelor of Applied Engineering in Mechatronics Engineering',
     period: '2019 - 2023',
-    note: 'Graduated with strong foundation in mechatronics, automation, control, and engineering project development.'
+    note: 'Graduated with a foundation in mechatronics, automation, control, and engineering project development.'
   },
   {
-    title: 'IISMA Program',
     school: 'Asia University, Taiwan',
-    period: '2022',
+    credential: 'Certificate Program in Computer Science and Information Engineering',
+    period: '2022 - 2023',
     note: 'International learning exposure and smart factory internship experience.'
   }
 ];
 
 export const certifications = [
-  'Ahli K3 Umum',
-  'Plate Welder 3G GTAW',
-  'Shielded Metal Arc Welder 3G SMAW',
-  'Certified Remote Pilot'
+  'EHS Expert Candidate -Ahli K3 Umum by Kemnaker RI',
+  'Plate Welder 3G GTAW - Certified by BNSP',
+  'Shielded Metal Arc Welding (SMAW) Class 1 - Certified by BNSP',
+  'Certified Remote Pilot - Certified by DGCA Indonesia'
 ];
