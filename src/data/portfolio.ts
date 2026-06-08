@@ -506,7 +506,7 @@ export const education = [
 ];
 
 export const certifications = [
-  'EHS Expert Candidate -Ahli K3 Umum by Kemnaker RI',
+  'EHS Expert Candidate - Ahli K3 Umum by Kemnaker RI',
   'Plate Welder 3G GTAW - Certified by BNSP',
   'Shielded Metal Arc Welding (SMAW) Class 1 - Certified by BNSP',
   'Certified Remote Pilot - Certified by DGCA Indonesia'
