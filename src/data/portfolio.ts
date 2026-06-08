@@ -499,7 +499,7 @@ export const education = [
   },
   {
     school: 'Asia University, Taiwan',
-    credential: 'Certificate Program in Computer Science and Information Engineering',
+    credential: 'Program Certificate in Computer Science and Information Engineering',
     period: '2022 - 2023',
     note: 'International learning exposure and smart factory internship experience.'
   }
